@@ -2,6 +2,7 @@
 
 namespace PackagedBy\Repositories;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -56,5 +57,10 @@ abstract class Repository
         }
 
         return call_user_func_array([$this->model, $method], $args);
+    }
+
+    public function fromId($id): Builder
+    {
+        return $this->model->where('id', '=', $id);
     }
 }
