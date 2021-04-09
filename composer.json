@@ -1,0 +1,24 @@
+{
+    "name": "packagedby/model-repositories",
+    "description": "Easily create a repository using a Laravel Model",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Nathan Dunn",
+            "email": "nathan@packagedby.com"
+        },
+        {
+            "name": "Michael Peacock",
+            "email": "michael@packagedby.com"
+        }
+    ],
+    "require": {
+      "php": "^7.3|^7.4|^8.0",
+      "laravel/framework": "^7.0|^8.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "PackagedBy\\Repositories\\": "src"
+      }
+    }
+}
