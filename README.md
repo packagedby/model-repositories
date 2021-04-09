@@ -1,5 +1,5 @@
 # Laravel Model Respositories
-Wraps around eloquent models allowing them to be used as repositories. 
+Wraps around [Eloquent models](https://laravel.com/docs/8.x/eloquent) allowing them to be used as repositories. 
 
 ## Why?
 Because getting a collection from a model "object" isn't really a models
