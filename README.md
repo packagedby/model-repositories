@@ -41,5 +41,39 @@ class RecordRepository extends Repository
       return $this->model->where('user_id', '=', $uuid);
     }
 }
+```
 
+You can inject the `RecordRepository` in a controller:
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Resources\RecordResource;
+use App\Records\RecordRepository;
+use Illuminate\Http\Request;
+
+class RecordsController extends Controller
+{
+    protected RecordRepository $recordRepository;
+    
+    public function __construct(RecordRepository $recordRepository)
+    {
+        $this->recordRepository = $recordRepository;
+    }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $user = $request->user();
+        $records = $this->recordRepository->fromUser($user);
+        
+        return RecordResource::collection($records);
+    }
+}
 ```
