@@ -71,7 +71,7 @@ class RecordsController extends Controller
     public function index(Request $request)
     {
         $user = $request->user();
-        $records = $this->recordRepository->fromUser($user);
+        $records = $this->recordRepository->forUser($user);
         
         return RecordResource::collection($records);
     }
